@@ -14,11 +14,11 @@ startBtn.addEventListener("click", function(event){
     questionTitle.innerHTML = questions[0].question;
     for (i = 0; i < questions[0].choice.length; i++){
         let choice = document.createElement("li");
-        choice.className = "choice";
-        newClassName = choice.className;
+        // choice.className = "choice";
+        // newClassName = choice.className;
         choice.innerHTML = questions[0].choice[i];
         choices.appendChild(choice);
-        console.log(newClassName);
+        // console.log(newClassName);
         
     }
 
@@ -30,16 +30,23 @@ startBtn.addEventListener("click", function(event){
 
 )
 
-let userAnswer = "";
+// let userAnswer = "";
 
 
-function myFunction(){
-    userAnswer = document.querySelector(".choice").textContent;
-    console.log("onclick was used")
-    console.log(userAnswer);
+// function myFunction(){
+//     userAnswer = document.querySelector(".choice").textContent;
+//     console.log("onclick was used")
+//     console.log(userAnswer);
     
+// }
+const answerChosen = (e) => {
+    if(e.target.nodeName == "LI")
+    e.target.classList.add("choice");
+
 }
 
+choices.addEventListener("click", answerChosen);
+console.log(answerChosen);
 
 
 
