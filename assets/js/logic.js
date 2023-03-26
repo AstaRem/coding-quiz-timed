@@ -1,31 +1,46 @@
-const startBtn = document.querySelector("#start")
-let questionsSection = document.querySelector("#questions")
-let choices = document.querySelector("#choices")
-let questionTitle = document.querySelector("#question-title")
+const startBtn = document.querySelector("#start");
+let questionsSection = document.querySelector("#questions");
+let choices = document.querySelector("#choices");
+let questionTitle = document.querySelector("#question-title");
+const startScreen = document.querySelector("#start-screen");
+let newClassName = "";
 
 
-
-startBtn.addEventListener("click", function(){
+startBtn.addEventListener("click", function(event){
     console.log("start button clicked!")
-    // console.log(questions.question1.questions)
+    startScreen.remove();
     questionsSection.style.display = 'block';
+
     questionTitle.innerHTML = questions[0].question;
+    for (i = 0; i < questions[0].choice.length; i++){
+        let choice = document.createElement("li");
+        choice.className = "choice";
+        newClassName = choice.className;
+        choice.innerHTML = questions[0].choice[i];
+        choices.appendChild(choice);
+        console.log(newClassName);
+        
+    }
 
-    let choice1 = document.createElement("li");
-    choice1.innerHTML = questions[0].choice1;
-    choices.appendChild(choice1);
-
-    let choice2 = document.createElement("li");
-    choice2.innerHTML = questions[0].choice2;
-    choices.appendChild(choice2);
-
-    let choice3 = document.createElement("li");
-    choice3.innerHTML = questions[0].choice3;
-    choices.appendChild(choice3);
-
-    let choice4 = document.createElement("li");
-    choice4.innerHTML = questions[0].choice4;
-    choices.appendChild(choice4);
+    
+    
+    }
+    
 
 
-})
+)
+
+let userAnswer = "";
+
+
+function myFunction(){
+    userAnswer = document.querySelector(".choice").textContent;
+    console.log("onclick was used")
+    console.log(userAnswer);
+    
+}
+
+
+
+
+
