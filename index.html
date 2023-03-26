@@ -28,9 +28,17 @@
       <div id="questions" class="hide">
         <h2 id="question-title">your question could be here</h2>
         <ol id="choices">
-          <li>just tome text</li>
-        </ol>
+          <li class="option"><span id="option0" onclick="calcScore(this)"></span></li>
+          <li class="option"><span id="option1" onclick="calcScore(this)"></span></li>
+          <li class="option"><span id="option2" onclick="calcScore(this)"></span></li>
+          <li class="option"><span id="option3" onclick="calcScore(this)"></span></li>
+  </ol>
       </div>
+
+      <div class="buttons">
+        <button type="button" id="next" class="hide">Next</button>
+    </div>
+
 
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
@@ -45,6 +53,7 @@
     </div>
 
     <script src="./assets/js/questions.js"></script>
-    <script src="./assets/js/logic.js"></script>
+    <!-- <script src="./assets/js/logic.js"></script> -->
+    <script src="./assets/js/logic2.js"></script>
   </body>
 </html>
