@@ -10,6 +10,7 @@ let finalScore = document.getElementById("final-score");
 let finalScreen = document.getElementById("end-screen");
 let nextBtn = document.getElementById("next");
 let questionTitle = document.getElementById("question-title");
+let feedbackDiv = document.getElementById("feedback");
 let i=0;
 let score= 0;
 
@@ -29,19 +30,44 @@ function displayQuestion(){
     option2.innerHTML= questions[i].choice[2];
     option3.innerHTML= questions[i].choice[3];
     // stat.innerHTML= "Question"+' '+(i+1)+' '+'of'+' '+questions.length;
+    
 }
+
+function userChoice(evt) {
+    userChoice = evt.target.textContent;
+    console.log(userChoice)
+    console.log(`correct answer is: ${questions[i].answer}`)
+
+    if (userChoice == questions[i].answer){
+        score += 1;
+        //show right
+        feedbackDiv.style.display = 'block';
+        feedbackDiv.innerHTML = "Correct";
+        console.log("you are right");
+        console.log(`Your score is ${score}`);
+        } else {
+        //show wrong
+        feedbackDiv.style.display = 'block';
+        feedbackDiv.innerHTML = "Wrong";
+        console.log("you are wrong");
+        console.log(`Your score is ${score}`);
+        }
+
+
+  }
+
+  choices.addEventListener("click", userChoice);
+
+
 
 //to calculate score
 function calcScore(e){
-    if(e.innerHTML===questions[i].answer && score<questions.length)
+    if(userChoice===questions[i].answer )
     {
         score= score+1;
-        document.getElementById(e.id).style.background= 'limegreen';
     }
-    else{
-        document.getElementById(e.id).style.background= 'tomato';
-    }
-    setTimeout(nextQuestion,300);
+    setTimeout(nextQuestion,1000);
+
 }
 
 //function to display next question
@@ -57,10 +83,33 @@ function nextQuestion(){
         nextBtn.style.display = "none";
         finalScreen.style.display= 'block';
     }
+    // checkAnswer();
+    feedbackDiv.style.display = 'none';
+
 }
 
 //click events to next button
 nextBtn.addEventListener('click',nextQuestion);
+
+//function to check Answers
+// function checkAnswer(){
+//     //compare to correct answer. if yes,add +1
+//     if (userChoice == questions[i].answer){
+//         score += 1;
+//         //show right
+//         feedbackDiv.style.display = 'block';
+//         feedbackDiv.innerHTML = "Correct";
+//         console.log("you are right");
+//         console.log(`Your score is ${score}`);
+//         } else {
+//         //show wrong
+//         feedbackDiv.style.display = 'block';
+//         feedbackDiv.innerHTML = "Wrong";
+//         console.log("you are wrong");
+//         console.log(`Your score is ${score}`);
+//         }
+
+// }
 
 
 displayQuestion();

@@ -1,29 +1,29 @@
 
 const questions = [
 {
-    question: "Question 1?",
-    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 4"], 
-    answer: "possible answer 1"
+    question: "What Javascript does for the webpage?",
+    choice: ["Provides structure ", "Provides style", "Provides dynamic effects", "Does not have any effect"], 
+    answer: "Provides dynamic effects"
 }, 
 {
-    question: "Question 2?",
-    choice: ["possible answer 1", "possible answer 21", "possible answer 3", "possible answer 4"], 
-    answer: "possible answer 21"
+    question: "Which is NOT an array method/property?",
+    choice: ["length", "push()", "setTimeOut()", "slice()"], 
+    answer: "setTimeOut()"
 }, 
 {
-    question: "Question 3?",
-    choice: ["possible answer 1", "possible answer 2", "possible answer 31", "possible answer 4"], 
-    answer: "possible answer 31"
+    question: "How to reference JavaScript file to your HTML file ?",
+    choice: ["Using script tag", "Using link tag", "Only need to be in the same folder, no tag needed", "Using div tag"], 
+    answer: "Using script tag"
 }, 
 {
-    question: "Question 4?",
-    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 41"], 
-    answer: "possible answer 41"
+    question: "Which data types we use in JavaScript?",
+    choice: ["Strings", "Numbers", "Booleans", "All the above"], 
+    answer: "All the above"
 }, 
 {
-    question: "Question 5?",
-    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 41"], 
-    answer: "possible answer 41"
+    question: "Which function we use to execute code with delay?",
+    choice: ["addEventListener()", "unshift()", "setTimeout()", "removeEventListener()"], 
+    answer: "setTimeout()"
 }
 
 ]
