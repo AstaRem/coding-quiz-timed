@@ -7,43 +7,27 @@ const questions = [
 }, 
 {
     question: "Question 2?",
-    choice1: "possible answer 1",
-    choice2: "possible answer 2",
-    choice3: "possible answer 3",
-    choice4: "possible answer 4",
-    answer: "correct answer"
+    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 4"], 
+    answer: "possible answer 2"
 }, 
 {
     question: "Question 3?",
-    choice1: "possible answer 1",
-    choice2: "possible answer 2",
-    choice3: "possible answer 3",
-    choice4: "possible answer 4",
-    answer: "correct answer"
+    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 4"], 
+    answer: "possible answer 3"
 }, 
 {
     question: "Question 4?",
-    choice1: "possible answer 1",
-    choice2: "possible answer 2",
-    choice3: "possible answer 3",
-    choice4: "possible answer 4",
-    answer: "correct answer"
+    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 4"], 
+    answer: "possible answer 4"
 }, 
 {
     question: "Question 5?",
-    choice1: "possible answer 1",
-    choice2: "possible answer 2",
-    choice3: "possible answer 3",
-    choice4: "possible answer 4",
-    answer: "correct answer"
-}, 
-
-
-
+    choice: ["possible answer 1", "possible answer 2", "possible answer 3", "possible answer 4"], 
+    answer: "possible answer 5"
+}
 
 ]
 
 
 
 
-let text = "this is a test text"
