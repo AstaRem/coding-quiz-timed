@@ -3,62 +3,45 @@ let questionsSection = document.querySelector("#questions");
 let choices = document.querySelector("#choices");
 let questionTitle = document.querySelector("#question-title");
 const startScreen = document.querySelector("#start-screen");
-// let newClassName = "";
-let listItem = document.querySelector("li");
-
+let score = 0;
 
 startBtn.addEventListener("click", function(event){
     console.log("start button clicked!")
     startScreen.remove();
+
     questionsSection.style.display = 'block';
 
     questionTitle.innerHTML = questions[0].question;
     for (i = 0; i < questions[0].choice.length; i++){
         let choice = document.createElement("li");
-        choice.setAttribute("id", `choice${i}`)
-        // newClassName = choice.className;
+        choice.setAttribute("data", "choice")
         choice.innerHTML = questions[0].choice[i];
         choices.appendChild(choice);
-        // console.log(newClassName);
-        
+        choices.addEventListener("click", userChoice);
         }
+       
     }
+         
     )
-
-    let newId = document.querySelector("#choice0");
-    console.log(startBtn);
-    console.log(newId);
-
-// listItem.addEventListener("click", function(event){
-//     let userChoice = listItem.textContent;
-//     console.log(userChoice);
-// })
-
+//saves user response texts and then calls checkAnswer() to see is it correct
+    function userChoice(evt) {
+        userChoice = evt.target.textContent;
+        console.log(userChoice)
+        console.log(`correct answer is: ${questions[0].answer}`)
+        checkAnswer();
+      }
+      
+//definition - checks if a user choice was correct
+      function checkAnswer(){
+        if (userChoice == questions[0].answer){
+            score += 10;
+            console.log("you are right");
+            console.log(`Your score is ${score}`);
+          } else {
+            console.log("you are wrong");
+          }
     
-    
-
-    
-
-
-
-
-// let userAnswer = "";
-
-
-// function myFunction(){
-//     userAnswer = document.querySelector(".choice").textContent;
-//     console.log("onclick was used")
-//     console.log(userAnswer);
-    
-// }
-// const answerChosen = (e) => {
-//     if(e.target.nodeName == "LI")
-//     e.target.classList.add("choice");
-
-// }
-
-// choices.addEventListener("click", answerChosen);
-// console.log(answerChosen);
+      }
 
 
 
