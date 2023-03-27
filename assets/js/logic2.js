@@ -117,8 +117,6 @@ nextBtn.addEventListener('click',nextQuestion);
 
 displayQuestion();
 
-//to do: button onclick=save to local storage()
-//submit button (in html) calls this function
 function saveInitials(){
     userInitials = initials.value;
     console.log(userInitials);
@@ -128,3 +126,4 @@ function saveInitials(){
     initials.value = "";
 }
 
+  
