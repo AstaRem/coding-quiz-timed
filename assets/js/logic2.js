@@ -32,7 +32,7 @@ function myTimer(){
     time.innerHTML = `${timeSeconds}`
     if(timeSeconds <= 0 || timeSeconds < 1 || finalScreen.style.display == 'block'){
         clearInterval(countDown);
-        finalScore.innerHTML= score+ '/'+ questions.length;
+        finalScore.innerHTML= score;
         questionsContainer.style.display= 'none';
         nextBtn.style.display = "none";
         finalScreen.style.display = 'block';
@@ -64,7 +64,7 @@ function userChoice(evt) {
     }
     
     if (userChoice == questions[i].answer){
-        score += 1;
+        score += 10;
         //show right
         feedbackDiv.style.display = 'block';
         feedbackDiv.innerHTML = "Correct";
@@ -89,9 +89,9 @@ function userChoice(evt) {
 function calcScore(e){
     if(userChoice===questions[i].answer )
     {
-        score= score+1;
+        score += 10;
     }
-    setTimeout(nextQuestion,2000);
+    setTimeout(nextQuestion,1500);
 
 }
 
@@ -103,7 +103,7 @@ function nextQuestion(){
         displayQuestion();
     }
     else{
-        finalScore.innerHTML= score+ '/'+ questions.length;
+        finalScore.innerHTML= score;
         questionsContainer.style.display= 'none';
         nextBtn.style.display = "none";
         finalScreen.style.display = 'block';
