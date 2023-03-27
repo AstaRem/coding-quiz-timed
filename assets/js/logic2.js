@@ -11,12 +11,14 @@ let finalScreen = document.getElementById("end-screen");
 let nextBtn = document.getElementById("next");
 let questionTitle = document.getElementById("question-title");
 let feedbackDiv = document.getElementById("feedback");
+let time = document.getElementById("time");
+let timeSeconds = 5;
 let i=0;
 let score= 0;
 
 startBtn.addEventListener("click", function(){
     console.log("start button clicked!")
-    startScreen.remove();
+    startScreen.style.display = "none";
     questionsContainer.style.display = 'block';
     nextBtn.style.display = "block";
     })
@@ -66,7 +68,7 @@ function calcScore(e){
     {
         score= score+1;
     }
-    setTimeout(nextQuestion,1000);
+    setTimeout(nextQuestion,2000);
 
 }
 
@@ -91,27 +93,15 @@ function nextQuestion(){
 //click events to next button
 nextBtn.addEventListener('click',nextQuestion);
 
-//function to check Answers
-// function checkAnswer(){
-//     //compare to correct answer. if yes,add +1
-//     if (userChoice == questions[i].answer){
-//         score += 1;
-//         //show right
-//         feedbackDiv.style.display = 'block';
-//         feedbackDiv.innerHTML = "Correct";
-//         console.log("you are right");
-//         console.log(`Your score is ${score}`);
-//         } else {
-//         //show wrong
-//         feedbackDiv.style.display = 'block';
-//         feedbackDiv.innerHTML = "Wrong";
-//         console.log("you are wrong");
-//         console.log(`Your score is ${score}`);
-//         }
-
-// }
-
-
 displayQuestion();
 
-
+//timer
+time.innerHTML = `${timeSeconds}`
+let countDown = setInterval(myTimer, 1000);
+function myTimer(){
+    timeSeconds--;
+    time.innerHTML = `${timeSeconds}`
+    if(timeSeconds <= 0 || timeSeconds < 1){
+        clearInterval(countDown);
+    }
+}
