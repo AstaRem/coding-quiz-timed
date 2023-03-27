@@ -20,29 +20,27 @@ let score= 0;
 let countDown;
 
 startBtn.addEventListener("click", function(){
-    console.log("start button clicked!")
     startScreen.style.display = "none";
     questionsContainer.style.display = 'block';
     nextBtn.style.display = "block";
 
     //timer
-time.innerHTML = `${timeSeconds}`
-
-countDown = setInterval(myTimer, 1000);
-function myTimer(){
-    timeSeconds--;
     time.innerHTML = `${timeSeconds}`
-    if(timeSeconds <= 0 || timeSeconds < 1 || finalScreen.style.display == 'block'){
-        clearInterval(countDown);
-        finalScore.innerHTML= score;
-        questionsContainer.style.display= 'none';
-        nextBtn.style.display = "none";
-        finalScreen.style.display = 'block';
-        feedbackDiv.style.display = 'none';
-    }   
-}
-    })
 
+    countDown = setInterval(myTimer, 1000);
+    function myTimer(){
+        timeSeconds--;
+        time.innerHTML = `${timeSeconds}`
+        if(timeSeconds <= 0 || timeSeconds < 1 || finalScreen.style.display == 'block'){
+            clearInterval(countDown);
+            finalScore.innerHTML= score;
+            questionsContainer.style.display= 'none';
+            nextBtn.style.display = "none";
+            finalScreen.style.display = 'block';
+            feedbackDiv.style.display = 'none';
+        }   
+    }
+    })
 
 //to display questions
 function displayQuestion(){
@@ -57,8 +55,6 @@ function displayQuestion(){
 
 function userChoice(evt) {
     userChoice = evt.target.textContent;
-    console.log(userChoice)
-    console.log(`correct answer is: ${questions[i].answer}`)
     if (userChoice != questions[i].answer){
         timeSeconds -= 10;
     }
@@ -68,21 +64,15 @@ function userChoice(evt) {
         //show right
         feedbackDiv.style.display = 'block';
         feedbackDiv.innerHTML = "Correct";
-        console.log("you are right");
-        console.log(`Your score is ${score}`);
         }  else {
         //show wrong
         feedbackDiv.style.display = 'block';
         feedbackDiv.innerHTML = "Wrong";
-        console.log("you are wrong");
-        console.log(`Your score is ${score}`);
         }
         return timeSeconds;
   }
 
-  choices.addEventListener("click", userChoice);
-
-
+choices.addEventListener("click", userChoice);
 
 //to calculate score
 function calcScore(e){

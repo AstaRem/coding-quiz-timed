@@ -14,6 +14,7 @@ If the time runs out before user answers all the questions - game is over and us
 ![question](assets/img/out.jpg)
 
 User can enter their initials, submit and once they click on Highscores link on the top left, it shows saved initials and score:
+
 ![question](assets/img/showScore.jpg)
 
 
