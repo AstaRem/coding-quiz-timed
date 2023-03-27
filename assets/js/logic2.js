@@ -12,9 +12,10 @@ let nextBtn = document.getElementById("next");
 let questionTitle = document.getElementById("question-title");
 let feedbackDiv = document.getElementById("feedback");
 let time = document.getElementById("time");
-let timeSeconds = 10;
+let timeSeconds = 30;
 let i=0;
 let score= 0;
+let countDown;
 
 startBtn.addEventListener("click", function(){
     console.log("start button clicked!")
@@ -24,12 +25,17 @@ startBtn.addEventListener("click", function(){
 
     //timer
 time.innerHTML = `${timeSeconds}`
-let countDown = setInterval(myTimer, 1000);
+countDown = setInterval(myTimer, 1000);
 function myTimer(){
     timeSeconds--;
     time.innerHTML = `${timeSeconds}`
     if(timeSeconds <= 0 || timeSeconds < 1 || finalScreen.style.display == 'block'){
         clearInterval(countDown);
+        finalScore.innerHTML= score+ '/'+ questions.length;
+        questionsContainer.style.display= 'none';
+        nextBtn.style.display = "none";
+        finalScreen.style.display = 'block';
+
     }
 }
 
@@ -86,7 +92,7 @@ function calcScore(e){
 
 //function to display next question
 function nextQuestion(){
-    if(i<questions.length-1)
+    if(i<questions.length-1 )
     {
         i=i+1;
         displayQuestion();
