@@ -12,6 +12,8 @@ let nextBtn = document.getElementById("next");
 let questionTitle = document.getElementById("question-title");
 let feedbackDiv = document.getElementById("feedback");
 let time = document.getElementById("time");
+let initials = document.getElementById("initials");
+let userInitials = "";
 let timeSeconds = 60;
 let i=0;
 let score= 0;
@@ -36,11 +38,9 @@ function myTimer(){
         questionsContainer.style.display= 'none';
         nextBtn.style.display = "none";
         finalScreen.style.display = 'block';
-
-    } 
-    
+        feedbackDiv.style.display = 'none';
+    }   
 }
-
     })
 
 
@@ -77,7 +77,6 @@ function userChoice(evt) {
         console.log("you are wrong");
         console.log(`Your score is ${score}`);
         }
-
         return timeSeconds;
   }
 
@@ -91,8 +90,7 @@ function calcScore(e){
     {
         score += 10;
     }
-    setTimeout(nextQuestion,1500);
-
+    setTimeout(nextQuestion,1000);
 }
 
 //function to display next question
@@ -107,6 +105,7 @@ function nextQuestion(){
         questionsContainer.style.display= 'none';
         nextBtn.style.display = "none";
         finalScreen.style.display = 'block';
+
     }
     // checkAnswer();
     feedbackDiv.style.display = 'none';
@@ -117,4 +116,15 @@ function nextQuestion(){
 nextBtn.addEventListener('click',nextQuestion);
 
 displayQuestion();
+
+//to do: button onclick=save to local storage()
+//submit button (in html) calls this function
+function saveInitials(){
+    userInitials = initials.value;
+    console.log(userInitials);
+    console.log(score);
+    localStorage.setItem("initials", userInitials);
+    localStorage.setItem("currentScore", score);
+    initials.value = "";
+}
 
