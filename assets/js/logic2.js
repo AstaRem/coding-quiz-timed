@@ -12,7 +12,7 @@ let nextBtn = document.getElementById("next");
 let questionTitle = document.getElementById("question-title");
 let feedbackDiv = document.getElementById("feedback");
 let time = document.getElementById("time");
-let timeSeconds = 5;
+let timeSeconds = 10;
 let i=0;
 let score= 0;
 
@@ -21,6 +21,18 @@ startBtn.addEventListener("click", function(){
     startScreen.style.display = "none";
     questionsContainer.style.display = 'block';
     nextBtn.style.display = "block";
+
+    //timer
+time.innerHTML = `${timeSeconds}`
+let countDown = setInterval(myTimer, 1000);
+function myTimer(){
+    timeSeconds--;
+    time.innerHTML = `${timeSeconds}`
+    if(timeSeconds <= 0 || timeSeconds < 1 || finalScreen.style.display == 'block'){
+        clearInterval(countDown);
+    }
+}
+
     })
 
 
@@ -83,7 +95,7 @@ function nextQuestion(){
         finalScore.innerHTML= score+ '/'+ questions.length;
         questionsContainer.style.display= 'none';
         nextBtn.style.display = "none";
-        finalScreen.style.display= 'block';
+        finalScreen.style.display = 'block';
     }
     // checkAnswer();
     feedbackDiv.style.display = 'none';
@@ -95,13 +107,3 @@ nextBtn.addEventListener('click',nextQuestion);
 
 displayQuestion();
 
-//timer
-time.innerHTML = `${timeSeconds}`
-let countDown = setInterval(myTimer, 1000);
-function myTimer(){
-    timeSeconds--;
-    time.innerHTML = `${timeSeconds}`
-    if(timeSeconds <= 0 || timeSeconds < 1){
-        clearInterval(countDown);
-    }
-}
