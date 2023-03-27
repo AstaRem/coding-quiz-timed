@@ -12,7 +12,7 @@ let nextBtn = document.getElementById("next");
 let questionTitle = document.getElementById("question-title");
 let feedbackDiv = document.getElementById("feedback");
 let time = document.getElementById("time");
-let timeSeconds = 30;
+let timeSeconds = 60;
 let i=0;
 let score= 0;
 let countDown;
@@ -25,6 +25,7 @@ startBtn.addEventListener("click", function(){
 
     //timer
 time.innerHTML = `${timeSeconds}`
+
 countDown = setInterval(myTimer, 1000);
 function myTimer(){
     timeSeconds--;
@@ -36,7 +37,8 @@ function myTimer(){
         nextBtn.style.display = "none";
         finalScreen.style.display = 'block';
 
-    }
+    } 
+    
 }
 
     })
@@ -57,7 +59,10 @@ function userChoice(evt) {
     userChoice = evt.target.textContent;
     console.log(userChoice)
     console.log(`correct answer is: ${questions[i].answer}`)
-
+    if (userChoice != questions[i].answer){
+        timeSeconds -= 10;
+    }
+    
     if (userChoice == questions[i].answer){
         score += 1;
         //show right
@@ -65,7 +70,7 @@ function userChoice(evt) {
         feedbackDiv.innerHTML = "Correct";
         console.log("you are right");
         console.log(`Your score is ${score}`);
-        } else {
+        }  else {
         //show wrong
         feedbackDiv.style.display = 'block';
         feedbackDiv.innerHTML = "Wrong";
@@ -73,7 +78,7 @@ function userChoice(evt) {
         console.log(`Your score is ${score}`);
         }
 
-
+        return timeSeconds;
   }
 
   choices.addEventListener("click", userChoice);
